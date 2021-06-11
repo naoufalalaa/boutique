@@ -1,7 +1,4 @@
-<?php include_once './elements/header.php';
-?>
 <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-center">
 
         <div class="uk-navbar-left">
             <div>
@@ -17,10 +14,18 @@
         <div class="uk-navbar-right">
             <div>
                 <ul class="uk-navbar-nav">
-                    <li><a href="#">Item</a></li>
+                <?php 
+                if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
+                ?>
+                    <li><a href="#"><?=$_SESSION['username']?></a></li>
+                    <li><a href="deconnexion.php">Logout</a></li>
+                <?php }else{?>
+                    <li id='sign'><a type="button" onclick="login()">Login</a></li>
+                    <li id='sign'><a type="button" onclick="sign()">Sign in</a></li>
+                <?php }?>
                 </ul>
             </div>
         </div>
 
-    </div>
+
 </nav>
