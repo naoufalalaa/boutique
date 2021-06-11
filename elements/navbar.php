@@ -3,8 +3,8 @@
         <div class="uk-navbar-left">
             <div>
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li id='home' class="uk-active"><a href="#">Home</a></li>
+                    <li id='about'><a href="#">About</a></li>
                 </ul>
             </div>
         </div>
@@ -20,7 +20,7 @@
                     <li><a href="#"><?=$_SESSION['username']?></a></li>
                     <li><a href="deconnexion.php">Logout</a></li>
                 <?php }else{?>
-                    <li id='sign'><a type="button" onclick="login()">Login</a></li>
+                    <li id='log'><a type="button" onclick="login()">Login</a></li>
                     <li id='sign'><a type="button" onclick="sign()">Sign in</a></li>
                 <?php }?>
                 </ul>
