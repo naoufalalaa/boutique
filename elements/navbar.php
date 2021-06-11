@@ -3,8 +3,8 @@
         <div class="uk-navbar-left">
             <div>
                 <ul class="uk-navbar-nav">
-                    <li id='home' class="uk-active"><a href="#">Home</a></li>
-                    <li id='about'><a href="#">About</a></li>
+                    <li id='home' class="uk-active"><a type="button" onclick="home()">Home</a></li>
+                    <li id='about'><a type="button" onclick="about()">About</a></li>
                 </ul>
             </div>
         </div>
