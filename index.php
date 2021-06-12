@@ -7,7 +7,9 @@ include_once './controllers/login.php';
 include_once './controllers/signin.php';
 ?>
 
-<div id="root" align="center"></div>
+<div id="root" align="center">
+<script>home()</script>
+</div>
 
 <script src="./assets/js/scripts.js"></script>
 

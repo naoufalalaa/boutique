@@ -18,7 +18,7 @@
                 if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
                 ?>
                     <li><a href="#"><?=$_SESSION['username']?></a></li>
-                    <li><a href="deconnexion.php">Logout</a></li>
+                    <li><a href="./controllers/deconnexion.php">Logout</a></li>
                 <?php }else{?>
                     <li id='log'><a type="button" onclick="login()">Login</a></li>
                     <li id='sign'><a type="button" onclick="sign()">Sign in</a></li>
