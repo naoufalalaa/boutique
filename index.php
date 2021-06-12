@@ -32,7 +32,7 @@ home();
 <div id="root" align="center">
 </div>
 <div align='center' id="ro">
-    <?php include_once "./controllers/products.php"; ?>
+    <?php include_once "./controllers/products.php";include_once "./controllers/addtocart.php"; ?>
     <h3>Welcome to the shop <span class="uk-badge">+<?=$nbrArticle?> article</span></h3>
     <hr class="uk-width-1-2@s"> 
     <div class="uk-child-width-expand@s uk-width-1-2@s uk-text-center" uk-grid>
@@ -69,7 +69,7 @@ home();
 
 
 
-
+            
             <div id="modal-full<?=$a['sku']?>" class="uk-modal-full" uk-modal>
                 <div class="uk-modal-dialog">
                     <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
@@ -80,11 +80,14 @@ home();
                             <p><?=$a['description'] ?></p>
                             <form method="post">    
                             <div class="uk-width-2-3@s">
-                                <input required class="uk-input" name="qte" type="number" placeholder="Quantity">
+                                <input <?php if(!isset($_SESSION['id'])) echo 'disabled' ?> required class="uk-input" name="qte" type="number" placeholder="Quantity">
                             </div> 
                             <input required name="id" type="hidden" value="<?=$a['sku'] ?>">
-                            <input required type="hidden" value="<?=$_SESSION['id'] ?>">
+                            <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])){?>
                             <button class="uk-button uk-button-secondary" type="submit">Add</button>
+                            <?php }else{?>
+                            <button class="uk-button uk-button-secondary" onclick="login();">Connectez-vous en premier</button>
+                            <?php }?>
                             </form>
                         </div>
                     </div>

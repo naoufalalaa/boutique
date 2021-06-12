@@ -1,4 +1,10 @@
-<nav class="uk-navbar-container uk-margin-bottom" uk-navbar>
+<?php
+    if(isset($_SESSION['id'])){
+        $panier = $bdd->query('SELECT * FROM panier WHERE id_user='.$_SESSION['id']);
+        $cart = $panier->rowCount();
+    }
+?>
+<nav class="uk-navbar-container uk-margin-bottom" uk-navbar="mode: click">
 
         <div class="uk-navbar-left">
             <div>
@@ -17,8 +23,15 @@
                 <?php 
                 if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
                 ?>
-                    <li><a href="#"><?=$_SESSION['username']?></a></li>
-                    <li><a href="./controllers/deconnexion.php">Logout</a></li>
+                    <li>
+                        <a href="#"><?=$_SESSION['username']?></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="./controllers/deconnexion.php">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#"><span uk-icon="icon: cart; ratio:1.5"></span><span class="uk-label uk-label-warning"><small><?=$cart?></small></span></a></li>
                 <?php }else{?>
                     <li id='log'><a type="button" onclick="login()">Login</a></li>
                     <li id='sign'><a type="button" onclick="sign()">Sign in</a></li>
