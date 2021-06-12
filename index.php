@@ -6,11 +6,11 @@ include_once './elements/navbar.php';
 include_once './controllers/login.php';
 include_once './controllers/signin.php';
 ?>
+<script src="./assets/js/scripts.js"></script>
 
 <div id="root" align="center">
-<script>home()</script>
 </div>
-
-<script src="./assets/js/scripts.js"></script>
+<script>home()</script>
+<div id="ro"></div>
 
 <?php include_once './elements/footer.php';?>
