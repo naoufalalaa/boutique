@@ -8,8 +8,9 @@
             $user = $check->fetch();
             $_SESSION['id']= $user['id'];
             $_SESSION['username'] = explode('@',$user['email'])[0];
+            header('location : index.php');
         }else{
-            $msg = '<div class="uk-alert uk-width-1-2@s uk-alert-danger">Identifient non reconnus!</div>'
+            $msg1 = '<div class="uk-alert uk-width-1-2@s uk-alert-danger">Identifient non reconnus!</div>';
         }
     }
 
