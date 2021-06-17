@@ -1,3 +1,8 @@
 .uk-active{
     border-bottom: solid 1px rgba(0, 0, 0, 0.452);
 }
+.rounded{
+    border-radius: 50%!important;
+    padding: 10px!important;
+    background-color: red!important;
+}
