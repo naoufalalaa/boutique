@@ -15,7 +15,7 @@ if(isset($_POST['sign'])){
             $msg="<div class='uk-alert uk-alert-success'>You were signed in successfuly!</div>";
         }
     } else{
-        $msg = "<div class='uk-alert uk-alert-danger'>Different passwords !</div>";
+        $msg = "<div class='uk-alert uk-alert-warning'>Different passwords !</div>";
     }
 }
 

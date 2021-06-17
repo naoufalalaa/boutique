@@ -9,7 +9,7 @@
         <div class="uk-navbar-left">
             <div>
                 <ul class="uk-navbar-nav">
-                    <li id='home' class="uk-active"><a type="button" onclick="home()">Home</a></li>
+                    <li id='home'<?php if($page=='Home'){?> class="uk-active" <?php }?>><a type="button" onclick="home()">Home</a></li>
                     <li id='about'><a type="button" onclick="about()">About</a></li>
                 </ul>
             </div>
@@ -33,8 +33,8 @@
                     </li>
                     <li><a href="#"><span uk-icon="icon: cart; ratio:1.5"></span><span class="uk-label uk-label-warning"><small><?=$cart?></small></span></a></li>
                 <?php }else{?>
-                    <li id='log'><a type="button" onclick="login()">Login</a></li>
-                    <li id='sign'><a type="button" onclick="sign()">Sign in</a></li>
+                    <li <?php if($page=='Login'){?>class="uk-active"<?php }?>><a type="button" href="login.php">Login</a></li>
+                    <li <?php if($page=='Signin'){?>class="uk-active"<?php }?>><a type="button" href="sign.php">Sign in</a></li>
                 <?php }?>
                 </ul>
             </div>

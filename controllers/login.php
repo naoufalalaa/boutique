@@ -1,5 +1,7 @@
 <?php
-
+    if(isset($_SESSION['id'])) {
+        header('location : index.php');
+    }
     if(isset($_POST['connect'])){
         $email=htmlspecialchars($_POST['email']);
         $pass=htmlspecialchars(sha1($_POST['pass']));
@@ -8,10 +10,9 @@
             $user = $check->fetch();
             $_SESSION['id']= $user['id'];
             $_SESSION['username'] = explode('@',$user['email'])[0];
-            header("Refresh:0");
+            header("location : index.php");
         }else{
             $msg1 = '<div class="uk-alert uk-width-1-2@s uk-alert-danger">Identifient non reconnus!</div>';
         }
     }
-
 ?>
