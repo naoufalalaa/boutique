@@ -1,6 +1,8 @@
 <?php
 include_once 'connexion.php';
-if (isset($_SESSION['id'])) header('location : index.php');
+if(isset($_SESSION['id'])){
+    header('location : ./profile.php?id='.$_SESSION['id']);
+}else{
 $page = 'Login';
 include_once './elements/header.php';
 include_once './elements/navbar.php';
@@ -16,5 +18,6 @@ include_once './controllers/login.php';
 </form>
 </div>
 <?php
-include_once './elements/footer.php'
+include_once './elements/footer.php';
+}
 ?>

@@ -1,12 +1,19 @@
 <?php
-session_start();
-$bdd = new PDO("mysql:host=127.0.0.1;dbname=bouti;charset=utf8", "root", "");
-if(isset($_POST['qte']))
-{    
-    $id = htmlspecialchars($_POST['id']);
-    $user = htmlspecialchars($_SESSION['id']);
-    $qte = htmlspecialchars($_POST['qte']);
-    $ins=$bdd->prepare('INSERT INTO panier(id_art,id_user,qte) VALUES(?,?,?)');
-    $ins->execute(array($id,$user,$qte));
-}
+    if(isset($_POST['qte']))
+    {    
+        $id = htmlspecialchars($_GET['id']);
+        $user = htmlspecialchars($_SESSION['id']);
+        $qte = htmlspecialchars($_POST['qte']);
+        $check=$bdd->query('SELECT * FROM panier WHERE id_art="'.$id.'" AND id_user="'.$user.'" AND cmd=0');
+        if($check->rowCount()>0){
+            $c=$check->fetch();
+            $qte += $c['qte'];
+            $up=$bdd->query('UPDATE panier set qte = '.$qte.' WHERE id_art='.$id.' AND id_user = '.$user);
+            $msg="<div class='uk-alert uk-alert-success'>Added successfuly!</div>";
+        }else{
+            $ins=$bdd->prepare('INSERT INTO panier(id_art,id_user,qte) VALUES(?,?,?)');
+            $ins->execute(array($id,$user,$qte));
+            header('location : article.php?id='.$id);
+        }
+    }
 ?>

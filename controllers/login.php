@@ -1,7 +1,5 @@
 <?php
-    if(isset($_SESSION['id'])) {
-        header('location : index.php');
-    }
+   
     if(isset($_POST['connect'])){
         $email=htmlspecialchars($_POST['email']);
         $pass=htmlspecialchars(sha1($_POST['pass']));
