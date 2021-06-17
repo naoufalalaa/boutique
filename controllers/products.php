@@ -1,7 +1,7 @@
 <?php
 $articles=$bdd->query('SELECT * FROM products ORDER BY sku DESC');
 $nbrArticle=$articles->rowCount();
-$articlePerPage=120;
+$articlePerPage=10;
 $pageTotal = ceil($nbrArticle/$articlePerPage);
 if(isset($_GET['page']) && $_GET['page']>0 && $_GET['page']<=$pageTotal){
     $_GET['page'] = intval($_GET['page']);

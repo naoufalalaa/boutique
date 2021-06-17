@@ -3,7 +3,6 @@ include_once 'connexion.php';
 $page = 'Home';
 include_once './elements/header.php';
 include_once './elements/navbar.php';
-include_once './controllers/signin.php';
 ?>
 
 <script>
@@ -46,7 +45,7 @@ home();
         <li style="float: left;"><a href="index.php?page=<?=$pageCourante-1?>"><span uk-pagination-previous></span> Page Precedente</a></li>
         <li style="float: right;"><a href="index.php?page=<?=$pageCourante+1?>">Page Suivante<span uk-pagination-next></span> </a></li>
     </ul>
-    <div align='left' id="divis" class="uk-grid-match uk-width-6-7 uk-child-width-1-2@s uk-child-width-1-5@l uk-text-center" uk-grid="parallax: 150">
+    <div align='left' id="divis" class="uk-grid-match uk-width-6-7 uk-child-width-1-2@s uk-child-width-1-3@l uk-text-center" uk-grid="parallax: 5">
         <?php if($checker>0){ while($a=$article->fetch()){ ?>
             <div>
                 <div class="uk-box-shadow-hover-large uk-card uk-card-default">
@@ -96,11 +95,9 @@ home();
     </div>
     <ul class="uk-pagination" uk-margin>
         <li><a href="index.php?page=<?=$pageCourante-1?>"><span uk-pagination-previous></span></a></li>
-        <?php for($i=1;$i<=$pageTotal;$i++){
-            if($i>7 && ($i%10!=0 || $i%20!=0)) echo '<li> </li>';else{?>
-            
+        <?php for($i=1;$i<=$pageTotal;$i++){?>
             <li><a href="index.php?page=<?=$i?>"><?=$i?></a></li>
-        <?php } }?>
+        <?php }?>
         <li><a href="index.php?page=<?=$pageCourante+1?>"><span uk-pagination-next></span></a></li>
     </ul>
 </div>
