@@ -6,7 +6,6 @@
         $c=$check->fetch();
         $qte=$c['qte']+1;
         $up=$bdd->query('UPDATE panier set qte='.$qte.' WHERE id_art='.$id.' AND id_user = '.$_SESSION['id']);
-        echo $qte; 
     }
 header('location : ../index.php');
 ?>
